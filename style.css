@@ -141,6 +141,18 @@
   }
 
 
+.iquedev-btn-combination-able {
+    color: #4527A0;
+    border: solid 1px #4527A0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.iquedev-btn-combination-active {
+    color: white;
+    background-color: #4527A0;
+}
+
 .iquedev-btn-correspondence {
     display: flex;
     justify-content: center;
@@ -160,7 +172,7 @@
     cursor: pointer; 
 }
 
-.iquedev-btn-correspondence:hover {
+.iquedev-btn-correspondence:hover, .iquedev-btn-combination-able:hover {
     transform: scale(0.97);
     transition: all 0.3s;
 }
@@ -321,3 +333,4 @@ a {
 .iquedev-btn-copy-disable {
     background-color: #EEEEEE;
 }
+

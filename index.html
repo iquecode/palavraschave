@@ -45,51 +45,51 @@
             <div class="iquedev-area-fields">
                 <div class="iquedev-area-field">
                     <span class='iquedev-subtitle'>Palavra-Chave A</span>
-                    <textarea class="iquedev-word-key-text-area" name="word-key-a" id="" placeholder="separe as palavras chaves por vírgulas"></textarea>
+                    <textarea class="iquedev-word-key-text-area" name="word-key-a" id="iquedev-word-key-A" onkeyup="checkBtnCombinationPossibilites()" placeholder="separe as palavras chaves por vírgulas"></textarea>
                 </div>
                 <div class="iquedev-area-field">
                     <span class='iquedev-subtitle'>Palavra-Chave B</span>
-                    <textarea class="iquedev-word-key-text-area" name="word-key-b" id="" placeholder="separe as palavras chaves por vírgulas"></textarea>
+                    <textarea class="iquedev-word-key-text-area" name="word-key-b" id="iquedev-word-key-B" onkeyup="checkBtnCombinationPossibilites()" placeholder="separe as palavras chaves por vírgulas"></textarea>
                 </div>
                 <div class="iquedev-area-field">
                     <span class='iquedev-subtitle'>Palavra-Chave C</span>
-                    <textarea class="iquedev-word-key-text-area" name="word-key-c" id="" placeholder="separe as palavras chaves por vírgulas"></textarea>
+                    <textarea class="iquedev-word-key-text-area" name="word-key-c" id="iquedev-word-key-C" onkeyup="checkBtnCombinationPossibilites()" placeholder="separe as palavras chaves por vírgulas"></textarea>
                 </div>
                 <div class="iquedev-area-field">
                     <span class='iquedev-subtitle'>Palavra-Chave D</span>
-                    <textarea class="iquedev-word-key-text-area" name="word-key-d" id="" placeholder="separe as palavras chaves por vírgulas"></textarea>
+                    <textarea class="iquedev-word-key-text-area" name="word-key-d" id="iquedev-word-key-D" onkeyup="checkBtnCombinationPossibilites()" placeholder="separe as palavras chaves por vírgulas"></textarea>
                 </div>
                 <div class="iquedev-area-field">
                     <span class='iquedev-subtitle'>Palavra-Chave E</span>
-                    <textarea class="iquedev-word-key-text-area" name="word-key-e" id="" placeholder="separe as palavras chaves por vírgulas"></textarea>
+                    <textarea class="iquedev-word-key-text-area" name="word-key-e" id="iquedev-word-key-E" onkeyup="checkBtnCombinationPossibilites()" placeholder="separe as palavras chaves por vírgulas"></textarea>
                 </div>
             </div>
             <div class="iquedev-area-controls">
                 <div class="iquedev-area-choice-combinations">
                     <div id='iquedev-label-area-choice-combinations' class='iquedev-subtitle iquedev-subtitle-center'>Combinações</div>
                     <div class="iquedev-area-btns-combinations">
-                            <div id='iquedev-btn-combination-A+B'       class="iquedev-btn-combination">A+B</div>
-                            <div id='iquedev-btn-combination-A+C'       class="iquedev-btn-combination">A+C</div>
-                            <div id='iquedev-btn-combination-A+D'       class="iquedev-btn-combination">A+D</div>
-                            <div id='iquedev-btn-combination-A+E'       class="iquedev-btn-combination">A+E</div>
-                            <div id='iquedev-btn-combination-B+C'       class="iquedev-btn-combination">B+C</div>
-                            <div id='iquedev-btn-combination-B+D'       class="iquedev-btn-combination">B+D</div>
-                            <div id='iquedev-btn-combination-B+E'       class="iquedev-btn-combination">B+E</div>
-                            <div id='iquedev-btn-combination-C+D'       class="iquedev-btn-combination">C+D</div>
-                            <div id='iquedev-btn-combination-C+E'       class="iquedev-btn-combination">C+E</div>
-                            <div id='iquedev-btn-combination-D+E'       class="iquedev-btn-combination">D+E</div>
-                            <div id='iquedev-btn-combination-A+B+C'     class="iquedev-btn-combination">A+B+C</div>
-                            <div id='iquedev-btn-combination-A+B+D'     class="iquedev-btn-combination">A+B+D</div>
-                            <div id='iquedev-btn-combination-A+B+E'     class="iquedev-btn-combination">A+B+E</div>
-                            <div id='iquedev-btn-combination-B+C+D'     class="iquedev-btn-combination">B+C+D</div>
-                            <div id='iquedev-btn-combination-B+D+E'     class="iquedev-btn-combination">B+D+E</div>
-                            <div id='iquedev-btn-combination-C+D+E'     class="iquedev-btn-combination">C+D+E</div>
-                            <div id='iquedev-btn-combination-A+B+C+D'   class="iquedev-btn-combination">A+B+C+D</div>
-                            <div id='iquedev-btn-combination-A+B+C+E'   class="iquedev-btn-combination">A+B+C+E</div>
-                            <div id='iquedev-btn-combination-A+B+D+E'   class="iquedev-btn-combination">A+B+D+E</div>
-                            <div id='iquedev-btn-combination-A+C+D+E'   class="iquedev-btn-combination">A+C+D+E</div>
-                            <div id='iquedev-btn-combination-B+C+D+E'   class="iquedev-btn-combination">B+C+D+E</div>
-                            <div id='iquedev-btn-combination-A+B+C+D+E' class="iquedev-btn-combination">A+B+C+D+E</div> 
+                            <div id='iquedev-btn-combination-A+B'       class="iquedev-btn-combination" onclick="clickBtnCombination(this)">A+B</div>
+                            <div id='iquedev-btn-combination-A+C'       class="iquedev-btn-combination" onclick="clickBtnCombination(this)">A+C</div>
+                            <div id='iquedev-btn-combination-A+D'       class="iquedev-btn-combination" onclick="clickBtnCombination(this)">A+D</div>
+                            <div id='iquedev-btn-combination-A+E'       class="iquedev-btn-combination" onclick="clickBtnCombination(this)">A+E</div>
+                            <div id='iquedev-btn-combination-B+C'       class="iquedev-btn-combination" onclick="clickBtnCombination(this)">B+C</div>
+                            <div id='iquedev-btn-combination-B+D'       class="iquedev-btn-combination" onclick="clickBtnCombination(this)">B+D</div>
+                            <div id='iquedev-btn-combination-B+E'       class="iquedev-btn-combination" onclick="clickBtnCombination(this)">B+E</div>
+                            <div id='iquedev-btn-combination-C+D'       class="iquedev-btn-combination" onclick="clickBtnCombination(this)">C+D</div>
+                            <div id='iquedev-btn-combination-C+E'       class="iquedev-btn-combination" onclick="clickBtnCombination(this)">C+E</div>
+                            <div id='iquedev-btn-combination-D+E'       class="iquedev-btn-combination" onclick="clickBtnCombination(this)">D+E</div>
+                            <div id='iquedev-btn-combination-A+B+C'     class="iquedev-btn-combination" onclick="clickBtnCombination(this)">A+B+C</div>
+                            <div id='iquedev-btn-combination-A+B+D'     class="iquedev-btn-combination" onclick="clickBtnCombination(this)">A+B+D</div>
+                            <div id='iquedev-btn-combination-A+B+E'     class="iquedev-btn-combination" onclick="clickBtnCombination(this)">A+B+E</div>
+                            <div id='iquedev-btn-combination-B+C+D'     class="iquedev-btn-combination" onclick="clickBtnCombination(this)">B+C+D</div>
+                            <div id='iquedev-btn-combination-B+D+E'     class="iquedev-btn-combination" onclick="clickBtnCombination(this)">B+D+E</div>
+                            <div id='iquedev-btn-combination-C+D+E'     class="iquedev-btn-combination" onclick="clickBtnCombination(this)">C+D+E</div>
+                            <div id='iquedev-btn-combination-A+B+C+D'   class="iquedev-btn-combination" onclick="clickBtnCombination(this)">A+B+C+D</div>
+                            <div id='iquedev-btn-combination-A+B+C+E'   class="iquedev-btn-combination" onclick="clickBtnCombination(this)">A+B+C+E</div>
+                            <div id='iquedev-btn-combination-A+B+D+E'   class="iquedev-btn-combination" onclick="clickBtnCombination(this)">A+B+D+E</div>
+                            <div id='iquedev-btn-combination-A+C+D+E'   class="iquedev-btn-combination" onclick="clickBtnCombination(this)">A+C+D+E</div>
+                            <div id='iquedev-btn-combination-B+C+D+E'   class="iquedev-btn-combination" onclick="clickBtnCombination(this)">B+C+D+E</div>
+                            <div id='iquedev-btn-combination-A+B+C+D+E' class="iquedev-btn-combination" onclick="clickBtnCombination(this)">A+B+C+D+E</div> 
                     </div>
                 </div>
                 <div class="iquedev-area-choice-correspondence">
@@ -126,6 +126,7 @@
 
 
     <script src="script.js"></script>
+    <script src="jquery.min.js"></script>
     
 </body>
 </html>

@@ -81,3 +81,51 @@ function iquedevControlChoiceCorrespondence(type)
 
 }
 
+function clickBtnCombination(e)
+{
+    if ( !e.classList.contains('iquedev-btn-combination-able') ) return false;
+
+    if (e.classList.contains('iquedev-btn-combination-active') ) 
+        e.classList.remove('iquedev-btn-combination-active');
+    else
+        e.classList.add('iquedev-btn-combination-active');
+}
+
+function checkBtnCombinationPossibilites()
+{
+    const wordKeyA = document.getElementById('iquedev-word-key-A');
+    const wordKeyB = document.getElementById('iquedev-word-key-B');
+    const wordKeyC = document.getElementById('iquedev-word-key-C');
+    const wordKeyD = document.getElementById('iquedev-word-key-D');
+    const wordKeyE = document.getElementById('iquedev-word-key-E');
+   
+    const combinationBtns = document.getElementsByClassName('iquedev-btn-combination');
+    // console.log(combinationBtns);
+    combinationBtnsActive = [];
+    for (let i = 0; i < combinationBtns.length; i++) {
+        //console.log(combinationBtns[i].id.substr(24).split('+'));
+        
+        let activator=true;
+        combinationBtns[i].classList.remove('iquedev-btn-combination-able');
+        combinationBtns[i].id.substr(24).split('+').forEach(letter => {
+            if (letter == 'A' && wordKeyA.value == '') activator = false;
+            if (letter == 'B' && wordKeyB.value == '') activator = false;
+            if (letter == 'C' && wordKeyC.value == '') activator = false;
+            if (letter == 'D' && wordKeyD.value == '') activator = false;
+            if (letter == 'E' && wordKeyE.value == '') activator = false;
+            //console.log(letter);
+        });
+        // if (activator) combinationBtnsActive.push(combinationBtns[i]);
+        if (activator) {
+            combinationBtns[i].classList.add('iquedev-btn-combination-able'); 
+        } 
+        else {
+            combinationBtns[i].classList.remove('iquedev-btn-combination-active');
+        }
+    }
+
+    // combinationBtnsActive.forEach(element => {
+    //     console.log(element);
+    // });
+
+}
