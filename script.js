@@ -15,7 +15,7 @@ function iquedevControlChoiceCorrespondence(type)
 {
 
     //console.log("CLICOU!");
-    generateKeyWords();
+    
 
     const prefix       = 'iquedev-btn-correspondence-';
     const classDisable = prefix + 'disabled';
@@ -51,7 +51,7 @@ function iquedevControlChoiceCorrespondence(type)
     if ( broadModified == false && !elementBroadModified.classList.contains(classDisable)  )
     {
         elementBroadModified.classList.add(classDisable);
-        console.log("classes: " + elementBroad.classList );
+        //console.log("classes: " + elementBroad.classList );
     }
 
     if ( phrase == false && !elementPhrase.classList.contains(classDisable)  )
@@ -85,6 +85,9 @@ function iquedevControlChoiceCorrespondence(type)
         elementExact.classList.remove(classDisable);
     }
 
+    generateKeyWords();
+    console.log('kajhdkjahfkjs');
+
 
 }
 
@@ -96,6 +99,8 @@ function clickBtnCombination(e)
         e.classList.remove('iquedev-btn-combination-active');
     else
         e.classList.add('iquedev-btn-combination-active');
+
+    generateKeyWords();
 }
 
 function checkBtnCombinationPossibilites()
@@ -131,6 +136,8 @@ function checkBtnCombinationPossibilites()
         }
     }
 
+    
+    generateKeyWords();
     // combinationBtnsActive.forEach(element => {
     //     console.log(element);
     // });
@@ -170,119 +177,12 @@ function generateKeyWords()
         //console.log(words);
         list = [...list, ...generateCombinatiosEngine(words)];
     });
-    console.log ( list );
+    //console.log ( list );
     fillResultsTextArea(list);
 
     //console.log(generateCombinatios);
 
 }
-
-
-function teste()
-{
-
-     words = [];
-     words[0] = ['praia', 'campo', 'cidade'];
-     words[1] = ['sol', 'chuva'];
-
-    list = [];
-    for (let x = 0; x < words[0].length; x++)
-    {
-        for (let y = 0; y < words[1].length; y++ )
-        {	
-            
-            list.push ( words[0][x] + ' ' + words[1][y]  );							
-            
-        }
-    }
-    console.log( list );
-
-}
-
-
-function teste2()
-{
-
-     words = [];
-     words[0] = ['praia', 'campo', 'cidade'];
-     words[1] = ['sol', 'chuva'];
-     words[2] = ['quente', 'frio', 'ameno'];
-
-    list = [];
-    for (let x = 0; x < words[0].length; x++)
-    {
-        for (let y = 0; y < words[1].length; y++ )
-        {	
-            for (let z = 0; z < words[2].length; z++) 
-            {
-                list.push ( words[0][x] + ' ' + words[1][y] + ' ' + words[2][z]  );							
-            }	
-        }
-    }
-    console.log( list );
-
-}
-
-function teste3()
-{
-     words = [];
-     words[0] = ['praia', 'campo', 'cidade'];
-     words[1] = ['sol', 'chuva'];
-     words[2] = ['quente', 'frio', 'ameno'];
-     words[3] = ['chato', 'legal'];
-
-    list = [];
-    for (let x = 0; x < words[0].length; x++)
-    {
-        for (let y = 0; y < words[1].length; y++ )
-        {	
-            for (let z = 0; z < words[2].length; z++) 
-            {
-                for (let za = 0; za < words[3].length; za++) 
-                {
-                    list.push ( words[0][x] + ' ' + words[1][y] + ' ' + words[2][z] + ' ' + words[3][za]);		
-                }				
-            }	
-        }
-    }
-    console.log( list );
-}
-
-
-function teste4()
-{
-     words = [];
-     words[0] = ['praia', 'campo', 'cidade'];
-     words[1] = ['sol', 'chuva'];
-     words[2] = ['quente', 'frio', 'ameno'];
-     words[3] = ['chato', 'legal'];
-     words[4] = ['gambiarra', 'funciona'];
-
-    list = [];
-    for (let x = 0; x < words[0].length; x++)
-    {
-        for (let y = 0; y < words[1].length; y++ )
-        {	
-            for (let z = 0; z < words[2].length; z++) 
-            {
-                for (let za = 0; za < words[3].length; za++) 
-                {
-                    for (let zb = 0; zb < words[4].length; zb++) 
-                    {
-                        list.push ( words[0][x] + ' ' + words[1][y] + ' ' + words[2][z] + ' ' + words[3][za] + ' ' + words[4][zb]);
-                    }
-                }				
-            }	
-        }
-    }
-    console.log( list );
-}
-
-
-
-
-
-
 
 
 function generateCombinatiosEngine(words)
@@ -365,35 +265,67 @@ function generateCombinatiosEngine(words)
 function fillResultsTextArea(list)
 {
 
-    const textArea = document.getElementById('iquedev-results-text-area');
+    const prefix       = 'iquedev-btn-correspondence-';
+    const classDisable = prefix + 'disabled';
+    
+    let typeBroad         = true;
+    let typeBroadModified = true;
+    let typePhrase        = true;
+    let typeExact         = true;
+    const btnsCorrespondenceDisabled   = document.getElementsByClassName(classDisable);
+    for (let i = 0; i < btnsCorrespondenceDisabled.length; i++)
+    {
 
-    let content = '';
+        if ( btnsCorrespondenceDisabled[i].id == prefix + 'broad' )          typeBroad         = false;
+        if ( btnsCorrespondenceDisabled[i].id == prefix + 'broad-modified' ) typeBroadModified = false;
+        if ( btnsCorrespondenceDisabled[i].id == prefix + 'phrase' )         typePhrase        = false;
+        if ( btnsCorrespondenceDisabled[i].id == prefix + 'exact'  )         typeExact         = false;
+    }
+
+
+    let listBroad = [];
+    let listBroadModified = [];
+    let listPhrase = [];
+    let listExact = [];
+    
     list.forEach(item => {
-        content = content + item + '\r\n';
+        if ( typeBroad ) listBroad.push( item );
+
+        if ( typeBroadModified ) {
+            let itemModified = '';
+            item.split(' ').forEach(word => {
+                itemModified = itemModified + '+' + word.trim() + ' ';    
+            });
+            listBroadModified.push( itemModified );
+        }
+        
+        if ( typePhrase ) listPhrase.push( '"' + item + '"' );;
+        
+        if ( typeExact ) listExact.push( '[' + item + ']' );
     });
 
+    const number = listBroad.length + listBroadModified.length + listPhrase.length + listExact.length;
+
+
+    const textArea = document.getElementById('iquedev-results-text-area');
+    let content = '';
+    listBroad.forEach(item => {
+        content = content + item + '\r\n';
+    });
+    listBroadModified.forEach(item => {
+        content = content + item + '\r\n';
+    });
+    listPhrase.forEach(item => {
+        content = content + item + '\r\n';
+    });
+    listExact.forEach(item => {
+        content = content + item + '\r\n';
+    });
     textArea.value = content;
 
+    const numaberArea = document.getElementById('iquedev-area-label-results-number');
+    numaberArea.innerHTML = number;
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //teste3();
